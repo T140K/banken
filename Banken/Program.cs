@@ -33,10 +33,10 @@ namespace Banken
             //break; }
 
             // skapar en array som är baserad på constructorn jag har
-            User[] users = new User[3];
-            users[0] = new User("admin", "12", 50000);
-            users[1] = new User("user1", "123", 350.5);
-            users[2] = new User("user2", "1234", 0);
+            Account[] accounts = new Account[3];
+            accounts[0] = new Account("admin", "12", 50000);
+            accounts[1] = new Account("user1", "123", 350.5);
+            accounts[2] = new Account("user2", "1234", 0);
 
             //while loop för att appen inte ska stängas tills man skriver in "3"
             while (true)
@@ -52,12 +52,11 @@ namespace Banken
                 {
                     Console.Clear();
                     Console.Write("Enter your username: ");
-                    string? inputUser = Console.ReadLine();
+                    string? inputAcc = Console.ReadLine();
                     Console.Write("Enter your password: ");
-                    string? inputPass = Console.ReadLine();
-
+                    string? inputPin = Console.ReadLine();
                     
-                    credentialsValidation(users, inputUser, inputPass);
+                    accValidation(accounts, inputAcc, inputPin);
                     /*bool login = false; //dethär var rarted, borde göra det som en function som jag kommenterade om nere
                     User loggedInUser;
                     foreach (User user in users)
@@ -111,13 +110,13 @@ namespace Banken
             //denna funktion kollar om de info man gav ovan är korrekt med inputuser och inputpass som checkas 
             //tillasmmans med det som finns i array"databasen" då om det finns sådan kombination kommer man
             //logga in med den och denna kombinationen kommer spara som user och skickas vidare till userloggedin functionen
-            void credentialsValidation(User[] allUsers, string inputUser, string inputPass)
+            void accValidation(Account[] allAccounts, string inputAcc, string inputPin)
             {
-                foreach (User user in allUsers)
+                foreach (Account account in allAccounts)
                 {
-                    if (user.Username == inputUser && user.Password == inputPass)
+                    if (account.Username == inputAcc && account.Password == inputPin)
                     {
-                        userLoggedIn(user);
+                        accLoggedIn(account);
                         break;
                     }
                 }
@@ -125,12 +124,12 @@ namespace Banken
             //i denna metoden får man validerad kombination av en login som skickas in i denna parameter och blir till loggedinuser 
             //man får även access till andra arrayer så att man kan transfer pengar till andra konto, allt är i en while
             //loop så att man inte stänger ner applikationen när man loggar ut för att byta användare
-            void userLoggedIn (User loggedInUser) 
+            void accLoggedIn (Account loggedInAcc) 
             {
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Hello {loggedInUser.Username}, what would you like to do?\n");
+                    Console.WriteLine($"Hello {loggedInAcc.Username}, what would you like to do?\n");
                     Console.WriteLine("1. Check your balance");
                     Console.WriteLine("2. Deposit money");
                     Console.WriteLine("3. Withdraw money");
@@ -141,29 +140,29 @@ namespace Banken
                     if (option == "1")
                     {
                         Console.Clear();
-                        Console.WriteLine("Your balance is " + loggedInUser.Balance);
+                        Console.WriteLine("Your balance is " + loggedInAcc.Balance);
                         Console.ReadLine();
                     }
                     if (option == "2")
                     {
                         //+= gör att loggedinuser.Balance först adderas och sedan uppdateras till nya värdet
                         Console.Clear();
-                        Console.Write("You have " + loggedInUser.Balance + "$, how much would you like to deposit: ");
+                        Console.Write("You have " + loggedInAcc.Balance + "$, how much would you like to deposit: ");
                         double ammount = double.Parse(Console.ReadLine());
-                        loggedInUser.Balance += ammount;
+                        loggedInAcc.Balance += ammount;
                         Console.Clear();
-                        Console.WriteLine("You now have " + loggedInUser.Balance + "$");
+                        Console.WriteLine("You now have " + loggedInAcc.Balance + "$");
                         Console.ReadLine();
                     }
                     if (option == "3")
                     {
                         //+= gör att loggedinuser.Balance först subtraheras och sedan uppdateras till nya värdet
                         Console.Clear();
-                        Console.Write("You have " + loggedInUser.Balance + "$, how much would you like to withdraw: ");
+                        Console.Write("You have " + loggedInAcc.Balance + "$, how much would you like to withdraw: ");
                         double ammount = double.Parse(Console.ReadLine());
-                        loggedInUser.Balance -= ammount;
+                        loggedInAcc.Balance -= ammount;
                         Console.Clear();
-                        Console.WriteLine("You now have " + loggedInUser.Balance + "$");
+                        Console.WriteLine("You now have " + loggedInAcc.Balance + "$");
                         Console.ReadLine();
                     }
                     if (option == "4")
@@ -174,14 +173,14 @@ namespace Banken
                         Console.Clear();
                         Console.WriteLine("How much money would you like to transfer?");
                         double ammount = double.Parse(Console.ReadLine());
-                        loggedInUser.Balance -= ammount;
+                        loggedInAcc.Balance -= ammount;
                         //an kollar Users array och skapar newUser variabel som kommer sättas till den user man hittar i 
                         //account == newUser.Username, man söker genom hela listen och gemför den med inputen
-                        foreach (User newUser in users)
+                        foreach (Account findAccount in accounts)
                         {
-                            if (account == newUser.Username) 
+                            if (account == findAccount.Username) 
                             {
-                                if (ammount > loggedInUser.Balance)
+                                if (ammount > loggedInAcc.Balance)
                                 {
                                     //om man inte har pengar i kontot kommer denna meddelande visas
                                     Console.WriteLine("You dont have enought money");
@@ -191,7 +190,7 @@ namespace Banken
                                 {
                                     //annars är allt bra och det kommer gå igenom så att newUser balance adderas och 
                                     //uppdateras med summan gav 
-                                    newUser.Balance += ammount;
+                                    findAccount.Balance += ammount;
                                 }
                             }
                             else
@@ -210,7 +209,7 @@ namespace Banken
             }
         }
 
-        public class User
+        public class Account
         {
             /*public string Username { get; set; }
             public string Password { get; set; }
@@ -225,7 +224,7 @@ namespace Banken
             private double _balance;*/
 
             //constructor för att kunna skapa nya element till arrayen senare
-            public User(string username, string password, double balance)
+            public Account(string username, string password, double balance)
             {
                 Username = username;
                 Password = password;
