@@ -200,7 +200,6 @@ namespace Banken
                                 Console.WriteLine("Something went wrong, try again.");
                             }
                         }
-
                     }
                     if (option == "5")
                     {
@@ -236,7 +235,6 @@ namespace Banken
                 this._password = password;
                 this._balance = balance;*/
             }
-            
             //metod som kollar double i arrayen
             //metoderna var retardeD?
         }
