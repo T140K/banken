@@ -1,0 +1,15 @@
+C:\VS project\Banken\Banken\bin\Debug\net6.0\Banken.exe
+C:\VS project\Banken\Banken\bin\Debug\net6.0\Banken.deps.json
+C:\VS project\Banken\Banken\bin\Debug\net6.0\Banken.runtimeconfig.json
+C:\VS project\Banken\Banken\bin\Debug\net6.0\Banken.dll
+C:\VS project\Banken\Banken\bin\Debug\net6.0\Banken.pdb
+C:\VS project\Banken\Banken\obj\Debug\net6.0\Banken.csproj.AssemblyReference.cache
+C:\VS project\Banken\Banken\obj\Debug\net6.0\Banken.GeneratedMSBuildEditorConfig.editorconfig
+C:\VS project\Banken\Banken\obj\Debug\net6.0\Banken.AssemblyInfoInputs.cache
+C:\VS project\Banken\Banken\obj\Debug\net6.0\Banken.AssemblyInfo.cs
+C:\VS project\Banken\Banken\obj\Debug\net6.0\Banken.csproj.CoreCompileInputs.cache
+C:\VS project\Banken\Banken\obj\Debug\net6.0\Banken.dll
+C:\VS project\Banken\Banken\obj\Debug\net6.0\refint\Banken.dll
+C:\VS project\Banken\Banken\obj\Debug\net6.0\Banken.pdb
+C:\VS project\Banken\Banken\obj\Debug\net6.0\Banken.genruntimeconfig.cache
+C:\VS project\Banken\Banken\obj\Debug\net6.0\ref\Banken.dll
