@@ -44,7 +44,7 @@ namespace Banken
                 Console.WriteLine("Welcome, what would you like to do?");
                 Console.WriteLine("1. Login");
                 Console.WriteLine("2. Register");
-                Console.WriteLine("3. exit");
+                Console.WriteLine("3. Exit");
 
                 string? choice = Console.ReadLine();
 
@@ -130,7 +130,7 @@ namespace Banken
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Hello {loggedInUser.Username}! What would you like to do?\n");
+                    Console.WriteLine($"Hello {loggedInUser.Username}, what would you like to do?\n");
                     Console.WriteLine("1. Check your balance");
                     Console.WriteLine("2. Deposit money");
                     Console.WriteLine("3. Withdraw money");
